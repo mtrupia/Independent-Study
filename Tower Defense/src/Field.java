@@ -1,6 +1,5 @@
 import java.awt.*;
 import java.io.File;
-import java.io.IOException;
 
 /*
  * Field: the gaming field
@@ -26,12 +25,7 @@ public class Field {
 	// create blocks of the field
 	public void init() {
 		border = new Block(offset, offset, fullWidth-1, fullHeight-1, 0);
-		try {
-			blocks = Client.getWorld();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		blocks = Saves.loadWorld(new File("saves/world1.txt"));
 		Screen.life = 20;
 		Screen.coins = 100;
 	}
