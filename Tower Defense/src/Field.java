@@ -48,4 +48,68 @@ public class Field {
 			}
 		}
 	}
+
+	public static int getBlockSize() {
+		return blockSize;
+	}
+
+	public static void setBlockSize(int blockSize) {
+		Field.blockSize = blockSize;
+	}
+
+	public static int getWorldWidth() {
+		return worldWidth;
+	}
+
+	public static void setWorldWidth(int worldWidth) {
+		Field.worldWidth = worldWidth;
+	}
+
+	public static int getFullWidth() {
+		return fullWidth;
+	}
+
+	public static void setFullWidth(int fullWidth) {
+		Field.fullWidth = fullWidth;
+	}
+
+	public static int getWorldHeight() {
+		return worldHeight;
+	}
+
+	public static void setWorldHeight(int worldHeight) {
+		Field.worldHeight = worldHeight;
+	}
+
+	public static int getFullHeight() {
+		return fullHeight;
+	}
+
+	public static void setFullHeight(int fullHeight) {
+		Field.fullHeight = fullHeight;
+	}
+
+	public static int getOffset() {
+		return offset;
+	}
+
+	public static void setOffset(int offset) {
+		Field.offset = offset;
+	}
+
+	public Block[][] getBlocks() {
+		return blocks;
+	}
+
+	public void setBlocks(Block[][] blocks) {
+		this.blocks = blocks;
+	}
+
+	public Block getBorder() {
+		return border;
+	}
+
+	public void setBorder(Block border) {
+		this.border = border;
+	}
 }

@@ -5,6 +5,8 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
+import com.google.gson.Gson;
+
 /**
  * Trivial client for the date server.
  */
@@ -14,6 +16,7 @@ public class Client {
 	public static String line = "";
 	private static Scanner kb;
     public static void main(String[] args) throws IOException, InterruptedException {
+    	System.out.println(new Gson().toJson(new Field()));
     	kb = new Scanner(System.in);
         String serverAddress = "127.0.0.1";
         Socket s = new Socket(serverAddress, 8081);
@@ -54,15 +57,6 @@ public class Client {
         out = new PrintWriter(s.getOutputStream(), true);
         
     	Block blocks[][] = new Block[Field.worldHeight][Field.worldWidth];
-		
-    	out.println("LoadSave");
-    	out.println("Test");
-    	
-    	for (int y=0; y<blocks.length; y++) {
-			for (int x=0; x<blocks[0].length; x++) {
-				blocks[y][x] = new Block((x * Field.blockSize)+ Field.offset, (y * Field.blockSize)+Field.offset, Field.blockSize, Field.blockSize, in.read());
-			}
-    	}
     	
     	return blocks;
     }
