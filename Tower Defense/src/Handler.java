@@ -1,4 +1,5 @@
 import java.awt.event.*;
+import java.io.IOException;
 import java.awt.*;
 
 public class Handler implements MouseMotionListener, MouseListener{
@@ -28,10 +29,26 @@ public class Handler implements MouseMotionListener, MouseListener{
 	}
 
 	public void mouseDragged(MouseEvent e) {
-		Mouse.mouse = new Point(e.getX() - (Frame.size.width - Screen.myWidth) + 5, e.getY() - (Frame.size.height - Screen.myHeight) + 5);
+		int x = e.getX() - (Frame.size.width - Screen.myWidth) + 5;
+		int y = e.getY() - (Frame.size.height - Screen.myHeight) + 5;
+		
+		try {
+			Client.sendMouseCoords("Dragged", x, y);
+		} catch (IOException e1) {
+			System.exit(1);
+		}
+		
+		Mouse.mouse = new Point(x, y);
 	}
 
 	public void mouseMoved(MouseEvent e) {
-		Mouse.mouse = new Point(e.getX() - (Frame.size.width - Screen.myWidth) + 5, e.getY() - (Frame.size.height - Screen.myHeight) + 5);
+		int x = e.getX() - (Frame.size.width - Screen.myWidth) + 5;
+		int y = e.getY() - (Frame.size.height - Screen.myHeight) + 5;
+		try {
+			Client.sendMouseCoords("Moved", x, y);
+		} catch (IOException e1) {
+			System.exit(1);
+		}
+		Mouse.mouse = new Point(x, y);
 	}
 }
