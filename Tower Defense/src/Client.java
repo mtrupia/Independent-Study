@@ -7,7 +7,6 @@ import java.net.UnknownHostException;
 import java.util.Scanner;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 /**
  * Trivial client for the date server.
@@ -18,6 +17,7 @@ public class Client {
 	public static String line = "";
 	private static Scanner kb;
 	private static String serverAddress = "127.0.0.1";
+	private static Socket s;
 	
     public static void main(String[] args) throws IOException, InterruptedException {
     	kb = new Scanner(System.in);
@@ -76,8 +76,7 @@ public class Client {
     }
     
     public static void sendMouseCoords(String type, int x, int y) throws UnknownHostException, IOException {
-    	// create socket
-    	Socket s = new Socket(serverAddress, 8081);
+    	s = new Socket(serverAddress, 8081);
     	in = new BufferedReader(new InputStreamReader(
                 s.getInputStream()));
         out = new PrintWriter(s.getOutputStream(), true);
