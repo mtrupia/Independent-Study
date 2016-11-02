@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.geom.Rectangle2D;
 import java.io.IOException;
+import java.util.Random;
 
 import javax.swing.JPanel;
 @SuppressWarnings("serial")
@@ -27,7 +28,11 @@ public class MainWindow extends JPanel implements Runnable {
 	
 	public Thread thread = new Thread(this);
 	
+	public static int ID = 0;
+	
 	public MainWindow() {
+		while((ID = new Random().nextInt()) == 0);
+		
 		player = getPlayer();
 		
 		thread.start();
@@ -41,6 +46,11 @@ public class MainWindow extends JPanel implements Runnable {
 			for (int i = 0; i < player.getEnemies().size(); i++) {
 				Enemy e = player.getEnemies().get(i); 
 				GameField.Enemies.add(new Block(GameField.game[0][GameField.gameX/2].x + e.getX(), GameField.game[0][GameField.gameX/2].y + e.getY(), GameField.size, GameField.size, e.getId()));
+				Block x = GameField.Enemies.get(i);
+				Block y = GameField.game[GameField.gameY-1][GameField.gameX/2];
+				if (x.contains(y)) {
+					System.out.printf("X = %d, Y = %d\n", e.getX(), e.getY());
+				}
 			}
 		}
 		
@@ -58,7 +68,7 @@ public class MainWindow extends JPanel implements Runnable {
 		Player p = new Player();
 		
 		try {
-			p = Client.getGame();
+			p = Client.getGame(ID);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

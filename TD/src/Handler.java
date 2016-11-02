@@ -4,7 +4,7 @@ import java.awt.*;
 
 public class Handler implements MouseMotionListener, MouseListener{
 	public static Point mouse = new Point(0, 0);
-	public int id = 20;
+	public int towerId = 20, enemyId = 40;
 	public boolean stop = false, towerSelected = false;
 	
 	public void mouseClicked(MouseEvent e) {
@@ -41,7 +41,7 @@ public class Handler implements MouseMotionListener, MouseListener{
 							if (g.contains(mouse) && g.id != 1) {
 								// add tower
 								try {
-									Client.sendMessage("tower");
+									Client.buyTower(towerId, y, x, MainWindow.ID);
 								} catch (IOException e1) {
 									// TODO Auto-generated catch block
 									e1.printStackTrace();
@@ -56,6 +56,12 @@ public class Handler implements MouseMotionListener, MouseListener{
 					for (int i = 0; i < EnemyField.enemyX*EnemyField.enemyY; i++) {
 						if (EnemyField.enemy[i].contains(mouse)) {
 							// add enemy
+							try {
+								Client.buyEnemy(1, MainWindow.ID);
+							} catch (IOException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
 						}
 					}
 				}
@@ -64,7 +70,7 @@ public class Handler implements MouseMotionListener, MouseListener{
 					for (int i = 0; i < TowersField.towersX*TowersField.towersY; i++) {
 						if (TowersField.tower[i].contains(mouse)) {
 							towerSelected = true;
-							id = TowersField.tower[i].id;
+							towerId = TowersField.tower[i].id;
 						}
 					}
 				}
@@ -78,7 +84,7 @@ public class Handler implements MouseMotionListener, MouseListener{
 							if (g.contains(mouse) && g.id != 1) {
 								// remove tower
 								try {
-									Client.sendMessage("delete");
+									Client.sellTower(y, x, MainWindow.ID);
 								} catch (IOException e1) {
 									// TODO Auto-generated catch block
 									e1.printStackTrace();
