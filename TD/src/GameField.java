@@ -30,8 +30,8 @@ public class GameField {
 		game = new Block[gameY][gameX];
 		for(int y = 0; y < gameY; y++) {
 			for(int x = 0; x < gameX; x++) {
-				int id = p.getField().get(y).get(x).getBuilding().getId();
-				game[y][x] = new Block(border.x+offset*2 + x*size, border.y+offset+3 + y*size, size, size, id);
+				Field f = p.getField().get(y).get(x);
+				game[y][x] = new Block(border.x+offset*2 + f.getX(), border.y+offset+3 + f.getY(), size, size, f.getBuilding().getId());
 			}
 		}
 		game[0][gameX/2].id = 1;

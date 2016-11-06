@@ -4,8 +4,9 @@ import java.awt.*;
 
 public class Handler implements MouseMotionListener, MouseListener{
 	public static Point mouse = new Point(0, 0);
-	public int towerId = 20, enemyId = 40;
-	public boolean stop = false, towerSelected = false;
+	public static int towerId = 20, enemyId = 40;
+	public static boolean stop = false, towerSelected = false;
+	public static int mouseBtn;
 	
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
@@ -38,13 +39,16 @@ public class Handler implements MouseMotionListener, MouseListener{
 					for (int y = 0; y < GameField.gameY; y++) {
 						for (int x = 0; x < GameField.gameX; x++) {
 							Block g = GameField.game[y][x];
-							if (g.contains(mouse) && g.id != 1) {
-								// add tower
-								try {
-									Client.buyTower(towerId, y, x, MainWindow.ID);
-								} catch (IOException e1) {
-									// TODO Auto-generated catch block
-									e1.printStackTrace();
+							if (g.contains(mouse) && g.id != 1 && g.id < 20) {
+								if (AStar.test(18, 23, 0, 11, 17, 11, GameField.game, y, x, false)) {
+									// add tower
+									try {
+										Client.buyTower(towerId, y, x, MainWindow.ID);
+										mouseBtn = button;
+									} catch (IOException e1) {
+										// TODO Auto-generated catch block
+										e1.printStackTrace();
+									}
 								}
 							}
 						}
@@ -76,18 +80,22 @@ public class Handler implements MouseMotionListener, MouseListener{
 				}
 			} else if (button == MouseEvent.BUTTON3) {
 				towerSelected = false;
+				mouseBtn = button;
 			} else if (button == MouseEvent.BUTTON2) {
 				if (GameField.border.contains(mouse)) {
 					for (int y = 0; y < GameField.gameY; y++) {
 						for (int x = 0; x < GameField.gameX; x++) {
 							Block g = GameField.game[y][x];
-							if (g.contains(mouse) && g.id != 1) {
-								// remove tower
-								try {
-									Client.sellTower(y, x, MainWindow.ID);
-								} catch (IOException e1) {
-									// TODO Auto-generated catch block
-									e1.printStackTrace();
+							if (g.contains(mouse) && g.id != 1 && g.id > 19) {
+								if (AStar.test(18, 23, 0, 11, 17, 11, GameField.game, y, x, true)) {
+									// remove tower
+									try {
+										Client.sellTower(y, x, MainWindow.ID);
+										mouseBtn = button;
+									} catch (IOException e1) {
+										// TODO Auto-generated catch block
+										e1.printStackTrace();
+									}
 								}
 							}
 						}
@@ -100,7 +108,7 @@ public class Handler implements MouseMotionListener, MouseListener{
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		if (!stop) { 
-			
+			mouseBtn = 0;
 		}
 	}
 
@@ -109,6 +117,47 @@ public class Handler implements MouseMotionListener, MouseListener{
 			mouse.x = e.getX() - (Screen.size.width - MainWindow.width) + 5;
 			mouse.y = e.getY() - (Screen.size.height - MainWindow.height) + 5;
 			MainWindow.MouseText = "";
+			
+			// mouse stuff
+			if (mouseBtn == MouseEvent.BUTTON1) {
+				if (GameField.border.contains(mouse) && towerSelected) {
+					for (int y = 0; y < GameField.gameY; y++) {
+						for (int x = 0; x < GameField.gameX; x++) {
+							Block g = GameField.game[y][x];
+							if (g.contains(mouse) && g.id != 1 && g.id < 20) {
+								if (AStar.test(18, 23, 0, 11, 17, 11, GameField.game, y, x, false)) {
+									// add tower
+									try {
+										Client.buyTower(towerId, y, x, MainWindow.ID);
+									} catch (IOException e1) {
+										// TODO Auto-generated catch block
+										e1.printStackTrace();
+									}
+								}
+							}
+						}
+					}
+				}
+			} else if (mouseBtn == MouseEvent.BUTTON2) {
+				if (GameField.border.contains(mouse)) {
+					for (int y = 0; y < GameField.gameY; y++) {
+						for (int x = 0; x < GameField.gameX; x++) {
+							Block g = GameField.game[y][x];
+							if (g.contains(mouse) && g.id != 1 && g.id > 19) {
+								if (AStar.test(18, 23, 0, 11, 17, 11, GameField.game, y, x, true)) {
+									// remove tower
+									try {
+										Client.sellTower(y, x, MainWindow.ID);
+									} catch (IOException e1) {
+										// TODO Auto-generated catch block
+										e1.printStackTrace();
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 			
 			//Game
 			if (GameField.border.contains(mouse)) {
