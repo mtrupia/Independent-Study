@@ -1,3 +1,9 @@
+package Scenes;
+
+import Handlers.Client;
+import Handlers.Handler;
+import main.begin;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
@@ -8,9 +14,17 @@ import java.io.IOException;
 import java.util.Random;
 
 import javax.swing.JPanel;
+
+import Classes.Block;
+import Classes.Enemy;
+import Classes.Player;
+import Fields.EnemyField;
+import Fields.GameField;
+import Fields.SpecialsField;
+import Fields.TowersField;
 @SuppressWarnings("serial")
 
-public class MainWindow extends JPanel implements Runnable {
+public class GameWindow extends JPanel implements Runnable {
 	public static Player player;
 	
 	public static int width, height;
@@ -30,7 +44,7 @@ public class MainWindow extends JPanel implements Runnable {
 	
 	public static int ID = 0;
 	
-	public MainWindow() {
+	public GameWindow() {
 		while((ID = new Random().nextInt()) == 0);
 		
 		player = getPlayer();
@@ -70,8 +84,7 @@ public class MainWindow extends JPanel implements Runnable {
 		try {
 			p = Client.getGame(ID);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			begin.switichStates();
 		}
 		
 		return p;

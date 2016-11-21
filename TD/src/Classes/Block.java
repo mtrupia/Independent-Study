@@ -1,3 +1,4 @@
+package Classes;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 @SuppressWarnings("serial")

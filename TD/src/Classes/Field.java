@@ -1,3 +1,4 @@
+package Classes;
 public class Field {
 
     private Integer x;

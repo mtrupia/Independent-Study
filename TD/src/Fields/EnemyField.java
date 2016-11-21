@@ -1,9 +1,13 @@
+package Fields;
 import java.awt.Font;
 import java.awt.Graphics;
 
+import Classes.Block;
+import Scenes.GameWindow;
+
 public class EnemyField {
 	public static int offset = 5, 
-			borderWidth = 250, borderHeight = MainWindow.height-offset*2,
+			borderWidth = 250, borderHeight = GameWindow.height-offset*2,
 			enemyX = 2, enemyY = 6;
 	
 	public Font font = new Font("Courier New", Font.BOLD, 40);
@@ -34,7 +38,7 @@ public class EnemyField {
 		g.setFont(font);
 		
 		border.drawRect(g);
-		g.drawString("" + MainWindow.player.getScore(), border.x+offset, border.y+55);
+		g.drawString("" + GameWindow.player.getScore(), border.x+offset, border.y+55);
 		topLine.drawRect(g);
 		
 		// Enemies

@@ -1,27 +1,14 @@
-public class Enemy {
+package Classes;
+import java.util.HashMap;
+import java.util.Map;
 
-    private Integer x;
-    private Integer y;
+public class Building {
+
     private Integer id;
     private Integer health;
     private Integer damage;
-   
-    public Integer getX() {
-        return x;
-    }
-    
-    public void setX(Integer x) {
-        this.x = x;
-    }
-    
-    public Integer getY() {
-        return y;
-    }
-    
-    public void setY(Integer y) {
-        this.y = y;
-    }
-    
+    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
     public Integer getId() {
         return id;
     }
@@ -45,5 +32,13 @@ public class Enemy {
     public void setDamage(Integer damage) {
         this.damage = damage;
     }
-    
+
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
+    }
+
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
+    }
+
 }

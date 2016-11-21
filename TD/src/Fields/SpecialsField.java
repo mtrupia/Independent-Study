@@ -1,4 +1,7 @@
+package Fields;
 import java.awt.Graphics;
+
+import Classes.Block;
 
 public class SpecialsField {
 	public static int borderY = GameField.borderHeight+10, 

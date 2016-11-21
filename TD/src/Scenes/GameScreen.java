@@ -1,3 +1,5 @@
+package Scenes;
+
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Image;
@@ -5,13 +7,16 @@ import java.awt.image.CropImageFilter;
 import java.awt.image.FilteredImageSource;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+
+import Classes.Values;
+import Handlers.Handler;
 @SuppressWarnings("serial")
 
-public class Screen extends JFrame{
+public class GameScreen extends JFrame{
 	public static String title = "TD";
 	public static Dimension size = new Dimension(1280,720);
 	
-	public Screen() {
+	public GameScreen() {
 		setTitle(title);
 		setSize(size);
 		setResizable(false);
@@ -25,7 +30,7 @@ public class Screen extends JFrame{
 	public void init() {
 		setLayout(new GridLayout(1, 1, 0, 0));
 		
-		MainWindow window = new MainWindow();
+		GameWindow window = new GameWindow();
 		add(window);
 		addValues();
 		addMouseMotionListener(new Handler());
@@ -61,9 +66,4 @@ public class Screen extends JFrame{
 		Values.vals.get(30).string = "Spikes";
 		Values.vals.get(31).string = "Paver";
 	} 
-	
-	public static void main( String args[]) {
-		new Screen();
-	}
-	
 }

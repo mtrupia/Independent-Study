@@ -1,10 +1,14 @@
+package Fields;
 import java.awt.Font;
 import java.awt.Graphics;
 
+import Classes.Block;
+import Scenes.GameWindow;
+
 public class TowersField {
 	public static int offset = 5, 
-			borderWidth = 250, borderHeight = MainWindow.height-offset*2,
-			borderX = MainWindow.width-offset-borderWidth,
+			borderWidth = 250, borderHeight = GameWindow.height-offset*2,
+			borderX = GameWindow.width-offset-borderWidth,
 			towersX = 2, towersY = 6;
 	
 	public Font font = new Font("Courier New", Font.BOLD, 40);
@@ -39,9 +43,9 @@ public class TowersField {
 		
 		border.drawRect(g);
 		lifeImg.drawImg(g);
-		g.drawString("" + MainWindow.player.getLives(), lifeImg.x+iconSize+offset, lifeImg.y+30);
+		g.drawString("" + GameWindow.player.getLives(), lifeImg.x+iconSize+offset, lifeImg.y+30);
 		coinImg.drawImg(g);
-		g.drawString("" + MainWindow.player.getGold(), coinImg.x+iconSize+offset, coinImg.y+30);
+		g.drawString("" + GameWindow.player.getGold(), coinImg.x+iconSize+offset, coinImg.y+30);
 		topLine.drawRect(g);
 	
 		// towers
