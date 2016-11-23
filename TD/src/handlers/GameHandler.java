@@ -1,19 +1,19 @@
-package Handlers;
+package handlers;
 import java.awt.event.*;
 import java.io.IOException;
 
-import Classes.AStar;
-import Classes.Block;
-import Classes.Values;
-import Fields.EnemyField;
-import Fields.GameField;
-import Fields.TowersField;
-import Scenes.GameWindow;
-import Scenes.GameScreen;
+import classes.AStar;
+import classes.Block;
+import classes.Values;
+import fields.EnemyField;
+import fields.GameField;
+import fields.TowersField;
+import main.Screen;
+import windows.GameWindow;
 
 import java.awt.*;
 
-public class Handler implements MouseMotionListener, MouseListener{
+public class GameHandler implements MouseMotionListener, MouseListener{
 	public static Point mouse = new Point(0, 0);
 	public static int towerId = 20, enemyId = 40;
 	public static boolean stop = false, towerSelected = false;
@@ -39,8 +39,8 @@ public class Handler implements MouseMotionListener, MouseListener{
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 		if (!stop) { 
-			mouse.x = e.getX() - (GameScreen.size.width - GameWindow.width) + 5;
-			mouse.y = e.getY() - (GameScreen.size.height - GameWindow.height) + 5;
+			mouse.x = e.getX() - (Screen.size.width - GameWindow.width) + 5;
+			mouse.y = e.getY() - (Screen.size.height - GameWindow.height) + 5;
 			GameWindow.MouseText = "";
 			int button = e.getButton();
 			
@@ -125,8 +125,8 @@ public class Handler implements MouseMotionListener, MouseListener{
 
 	public void mouseDragged(MouseEvent e) {
 		if (!stop) { 
-			mouse.x = e.getX() - (GameScreen.size.width - GameWindow.width) + 5;
-			mouse.y = e.getY() - (GameScreen.size.height - GameWindow.height) + 5;
+			mouse.x = e.getX() - (Screen.size.width - GameWindow.width) + 5;
+			mouse.y = e.getY() - (Screen.size.height - GameWindow.height) + 5;
 			GameWindow.MouseText = "";
 			
 			// mouse stuff
@@ -203,8 +203,8 @@ public class Handler implements MouseMotionListener, MouseListener{
 
 	public void mouseMoved(MouseEvent e) {
 		if (!stop) { 
-			mouse.x = e.getX() - (GameScreen.size.width - GameWindow.width) + 5;
-			mouse.y = e.getY() - (GameScreen.size.height - GameWindow.height) + 5;
+			mouse.x = e.getX() - (Screen.size.width - GameWindow.width) + 5;
+			mouse.y = e.getY() - (Screen.size.height - GameWindow.height) + 5;
 			GameWindow.MouseText = "";
 			
 			//Game
