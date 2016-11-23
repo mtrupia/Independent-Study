@@ -1,4 +1,4 @@
-package main;
+package Scenes;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -8,21 +8,15 @@ import java.awt.image.FilteredImageSource;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
-import classes.Values;
-import handlers.GameHandler;
-import handlers.MainHandler;
-import windows.GameWindow;
-import windows.MainWindow;
+import Classes.Values;
+import Handlers.Handler;
 @SuppressWarnings("serial")
 
-public class Screen extends JFrame{
+public class GameScreen extends JFrame{
 	public static String title = "TD";
-	public static int main = 1, game = 2, state = 0;
 	public static Dimension size = new Dimension(1280,720);
 	
-	public static Screen screen;
-	
-	public Screen() {
+	public GameScreen() {
 		setTitle(title);
 		setSize(size);
 		setResizable(false);
@@ -36,40 +30,13 @@ public class Screen extends JFrame{
 	public void init() {
 		setLayout(new GridLayout(1, 1, 0, 0));
 		
-		addValues();
-		
-		switchStates();
-		
-		setVisible(true);
-	}
-	
-	public void switchStates() {
-		if (state == 0) {
-			mainState();
-			state = main;
-		} else if (state == main) {
-			this.remove(1);
-			//gameState();
-			
-			state = game;
-		} else if (state == game) {
-			mainState();
-			
-			state = main;
-		}
-	}
-	
-	public void mainState() {
-		MainWindow window = new MainWindow();
-		add(window);
-		addMouseListener(new MainHandler());
-	}
-	
-	public void gameState() {
 		GameWindow window = new GameWindow();
 		add(window);
-		addMouseMotionListener(new GameHandler());
-		addMouseListener(new GameHandler());
+		addValues();
+		addMouseMotionListener(new Handler());
+		addMouseListener(new Handler());
+		
+		setVisible(true);
 	}
 	
 	// import block values
@@ -99,8 +66,4 @@ public class Screen extends JFrame{
 		Values.vals.get(30).string = "Spikes";
 		Values.vals.get(31).string = "Paver";
 	} 
-	
-	public static void main (String args[]) {
-		screen = new Screen();
-	}
 }

@@ -1,14 +1,8 @@
-package windows;
+package Scenes;
 
-import classes.Block;
-import classes.Enemy;
-import classes.Player;
-import fields.EnemyField;
-import fields.GameField;
-import fields.SpecialsField;
-import fields.TowersField;
-import handlers.Client;
-import handlers.GameHandler;
+import Handlers.Client;
+import Handlers.Handler;
+import main.begin;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -20,6 +14,14 @@ import java.io.IOException;
 import java.util.Random;
 
 import javax.swing.JPanel;
+
+import Classes.Block;
+import Classes.Enemy;
+import Classes.Player;
+import Fields.EnemyField;
+import Fields.GameField;
+import Fields.SpecialsField;
+import Fields.TowersField;
 @SuppressWarnings("serial")
 
 public class GameWindow extends JPanel implements Runnable {
@@ -82,7 +84,7 @@ public class GameWindow extends JPanel implements Runnable {
 		try {
 			p = Client.getGame(ID);
 		} catch (IOException e) {
-			//begin.switichStates();
+			begin.switichStates();
 		}
 		
 		return p;
@@ -116,7 +118,7 @@ public class GameWindow extends JPanel implements Runnable {
 		g.setFont(font);
 		FontMetrics fm = g.getFontMetrics();
 		Rectangle2D rect = fm.getStringBounds(MouseText, g);
-		Point m = GameHandler.mouse;
+		Point m = Handler.mouse;
 		int y = m.y - fm.getAscent();
 		
 		if(m.x > width/2) {
