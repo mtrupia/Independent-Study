@@ -1,19 +1,22 @@
-import javax.swing.*;
-import java.awt.*;
+package windows;
+
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.image.CropImageFilter;
 import java.awt.image.FilteredImageSource;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
-/*
- * Frame: Starts the games frame and imports data
- */
-public class Frame extends JFrame {
-	// default vals
-	public static String title = "TD  Version: 0.1";
-	public static Dimension size = new Dimension(700, 550);
-	//public static Dimension size = new Dimension(1280, 720);
+import classes.Values;
+import handlers.Handler;
+@SuppressWarnings("serial")
+
+public class GameScreen extends JFrame{
+	public static String title = "TD";
+	public static Dimension size = new Dimension(1280,720);
 	
-	// import parameters
-	public Frame() {
+	public GameScreen() {
 		setTitle(title);
 		setSize(size);
 		setResizable(false);
@@ -27,11 +30,11 @@ public class Frame extends JFrame {
 	public void init() {
 		setLayout(new GridLayout(1, 1, 0, 0));
 		
+		GameWindow window = new GameWindow();
+		add(window);
 		addValues();
 		addMouseMotionListener(new Handler());
 		addMouseListener(new Handler());
-		Screen screen = new Screen();
-		add(screen);
 		
 		setVisible(true);
 	}
@@ -62,10 +65,5 @@ public class Frame extends JFrame {
 		Values.vals.get(29).string = "Bombs";
 		Values.vals.get(30).string = "Spikes";
 		Values.vals.get(31).string = "Paver";
-	}
-	
-	// start frame
-	public static void main (String args[]) {
-		Frame frame = new Frame();
-	}
+	} 
 }

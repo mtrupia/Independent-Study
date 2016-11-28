@@ -1,5 +1,6 @@
-package Classes;
+package classes;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
 @SuppressWarnings("serial")
 
@@ -17,5 +18,9 @@ public class Block extends Rectangle{
 	
 	public void drawRect(Graphics g) {
 		g.drawRect(x, y, width, height);
+	}
+	
+	public void drawImg(Graphics g, Image img) {
+		g.drawImage(img, x, y, width, height, null);
 	}
 }

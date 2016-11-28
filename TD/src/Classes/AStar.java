@@ -1,9 +1,11 @@
-package Classes;
+package classes;
 import java.util.*;
 
 public class AStar {
     public static final int DIAGONAL_COST = 1000;
     public static final int V_H_COST = 1;
+    
+    public 
     
     static class Cell{  
         int heuristicCost = 0; //Heuristic cost
@@ -180,12 +182,13 @@ public class AStar {
                     } else if (current.i == last.i-1 && current.j == last.j+1){
                     	return false;
                     }
+                    //System.out.print(current + ", ");
                     last = current;
                     current = current.parent;
                 } 
-                System.out.println();
+                //8System.out.println();
                 return true;
-           }else System.out.println("No possible path");
+           }
            return false;
     }
 }

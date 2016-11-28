@@ -1,9 +1,9 @@
-package Fields;
+package fields;
 import java.awt.Font;
 import java.awt.Graphics;
 
-import Classes.Block;
-import Scenes.GameWindow;
+import classes.Block;
+import windows.GameWindow;
 
 public class TowersField {
 	public static int offset = 5, 

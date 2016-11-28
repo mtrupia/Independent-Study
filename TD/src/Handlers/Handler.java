@@ -1,15 +1,15 @@
-package Handlers;
+package handlers;
 import java.awt.event.*;
 import java.io.IOException;
 
-import Classes.AStar;
-import Classes.Block;
-import Classes.Values;
-import Fields.EnemyField;
-import Fields.GameField;
-import Fields.TowersField;
-import Scenes.GameWindow;
-import Scenes.GameScreen;
+import classes.AStar;
+import classes.Block;
+import classes.Values;
+import fields.EnemyField;
+import fields.GameField;
+import fields.TowersField;
+import windows.GameScreen;
+import windows.GameWindow;
 
 import java.awt.*;
 

@@ -1,7 +1,7 @@
 package main;
 
-import Scenes.GameScreen;
-import Scenes.MainScreen;
+import windows.GameScreen;
+import windows.MainScreen;
 
 public class begin {
 	static MainScreen ms;

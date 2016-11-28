@@ -1,4 +1,4 @@
-package Scenes;
+package windows;
 
 import java.awt.Font;
 import java.awt.event.MouseAdapter;

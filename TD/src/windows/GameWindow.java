@@ -1,7 +1,7 @@
-package Scenes;
+package windows;
 
-import Handlers.Client;
-import Handlers.Handler;
+import handlers.Client;
+import handlers.Handler;
 import main.begin;
 
 import java.awt.Color;
@@ -15,13 +15,13 @@ import java.util.Random;
 
 import javax.swing.JPanel;
 
-import Classes.Block;
-import Classes.Enemy;
-import Classes.Player;
-import Fields.EnemyField;
-import Fields.GameField;
-import Fields.SpecialsField;
-import Fields.TowersField;
+import classes.Block;
+import classes.Enemy;
+import classes.Player;
+import fields.EnemyField;
+import fields.GameField;
+import fields.SpecialsField;
+import fields.TowersField;
 @SuppressWarnings("serial")
 
 public class GameWindow extends JPanel implements Runnable {
@@ -60,18 +60,15 @@ public class GameWindow extends JPanel implements Runnable {
 			for (int i = 0; i < player.getEnemies().size(); i++) {
 				Enemy e = player.getEnemies().get(i); 
 				GameField.Enemies.add(new Block(GameField.game[0][GameField.gameX/2].x + e.getX(), GameField.game[0][GameField.gameX/2].y + e.getY(), GameField.size, GameField.size, e.getId()));
-				Block x = GameField.Enemies.get(i);
-				Block y = GameField.game[GameField.gameY-1][GameField.gameX/2];
-				if (x.contains(y)) {
-					System.out.printf("X = %d, Y = %d\n", e.getX(), e.getY());
-				}
 			}
 		}
 		
 		for(int y = 0; y < GameField.gameY; y++) {
 			for(int x = 0; x < GameField.gameX; x++) {
-				int id = player.getField().get(y).get(x).getBuilding().getId();
-				GameField.game[y][x].id = id;
+				if (player.getField().size()>0) {
+					int id = player.getField().get(y).get(x).getBuilding().getId();
+					GameField.game[y][x].id = id;
+				}
 			}
 		}
 		GameField.game[0][GameField.gameX/2].id = 1;

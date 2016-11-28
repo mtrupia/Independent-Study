@@ -1,13 +1,13 @@
-package Fields;
+package fields;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
-import Classes.Block;
-import Classes.Enemy;
-import Classes.Field;
-import Classes.Player;
-import Scenes.GameWindow;
+import classes.Block;
+import classes.Enemy;
+import classes.Field;
+import classes.Player;
 import main.begin;
+import windows.GameWindow;
 
 public class GameField {
 	public static int offset = 5, 

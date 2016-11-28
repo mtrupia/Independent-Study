@@ -1,4 +1,4 @@
-package Handlers;
+package handlers;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,7 +8,7 @@ import java.net.UnknownHostException;
 
 import com.google.gson.Gson;
 
-import Classes.Player;
+import classes.Player;
 
 public class Client {
 	private static BufferedReader in;
