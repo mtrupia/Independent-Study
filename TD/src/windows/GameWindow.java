@@ -56,10 +56,20 @@ public class GameWindow extends JPanel implements Runnable {
 		player = getPlayer();
 		
 		if (player.getEnemies() != null) {
-			GameField.Enemies.clear();
-			for (int i = 0; i < player.getEnemies().size(); i++) {
-				Enemy e = player.getEnemies().get(i); 
-				GameField.Enemies.add(new Block(GameField.game[0][GameField.gameX/2].x + e.getX(), GameField.game[0][GameField.gameX/2].y + e.getY(), GameField.size, GameField.size, e.getId()));
+			if ( (player.getEnemies().size() > GameField.Enemies.size()) || (player.getEnemies().size() < GameField.Enemies.size()) ) {
+				GameField.Enemies.clear();
+				for (int i = 0; i < player.getEnemies().size(); i++) {
+					Enemy e = player.getEnemies().get(i); 
+					GameField.Enemies.add(new Block(GameField.game[0][GameField.gameX/2].x + e.getX(), GameField.game[0][GameField.gameX/2].y + e.getY(), GameField.size, GameField.size, e.getId()));
+				}
+			} else if (player.getEnemies().size() == GameField.Enemies.size()) {
+				for (int i = 0; i < GameField.Enemies.size(); i++) {
+					Enemy e = player.getEnemies().get(i);
+					GameField.Enemies.get(i).x = GameField.game[0][GameField.gameX/2].x + e.getX();
+					GameField.Enemies.get(i).y = GameField.game[0][GameField.gameX/2].y + e.getY();
+				}
+			} else {
+				GameField.Enemies.clear();
 			}
 		}
 		
