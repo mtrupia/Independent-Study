@@ -8,7 +8,7 @@ import windows.GameWindow;
 public class EnemyField {
 	public static int offset = 5, 
 			borderWidth = 250, borderHeight = GameWindow.height-offset*2,
-			enemyX = 2, enemyY = 6;
+			enemyX = 2, enemyY = 3;
 	
 	public Font font = new Font("Courier New", Font.BOLD, 40);
 	public String buyText = "Spend All";
@@ -26,7 +26,7 @@ public class EnemyField {
 		int i = 0;
 		for (int y = 0; y < enemyY; y++) {
 			for (int x = 0; x < enemyX; x++) {
-				enemy[i] = new Block(topLine.x+offset*6 + x*(enemySize+offset*6), topLine.y+offset + y*(enemySize+offset), enemySize, enemySize, 1);
+				enemy[i] = new Block(topLine.x+offset*6 + x*(enemySize+offset*6), topLine.y+offset*18 + y*(enemySize+offset*6), enemySize, enemySize, enemyId+i);
 				i++;
 			}
 		}

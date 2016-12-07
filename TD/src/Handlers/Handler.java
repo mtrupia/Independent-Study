@@ -72,7 +72,7 @@ public class Handler implements MouseMotionListener, MouseListener{
 						if (EnemyField.enemy[i].contains(mouse)) {
 							// add enemy
 							try {
-								Client.buyEnemy(1, GameWindow.ID);
+								Client.buyEnemy(EnemyField.enemy[i].id, GameWindow.ID);
 							} catch (IOException e1) {
 								// TODO Auto-generated catch block
 								e1.printStackTrace();

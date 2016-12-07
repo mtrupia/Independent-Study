@@ -9,7 +9,7 @@ public class TowersField {
 	public static int offset = 5, 
 			borderWidth = 250, borderHeight = GameWindow.height-offset*2,
 			borderX = GameWindow.width-offset-borderWidth,
-			towersX = 2, towersY = 6;
+			towersX = 2, towersY = 3;
 	
 	public Font font = new Font("Courier New", Font.BOLD, 40);
 	public static Block border, lifeImg, coinImg, 
@@ -30,7 +30,7 @@ public class TowersField {
 		int i = 0;
 		for (int y = 0; y < towersY; y++) {
 			for (int x = 0; x < towersX; x++) {
-				tower[i] = new Block(topLine.x+offset*6 + x*(towerSize+offset*6), topLine.y+offset + y*(towerSize+offset), towerSize, towerSize, towersId+i);
+				tower[i] = new Block(topLine.x+offset*6 + x*(towerSize+offset*6), topLine.y+offset*18 + y*(towerSize+offset*6), towerSize, towerSize, towersId+i);
 				i++;
 			}
 		}
