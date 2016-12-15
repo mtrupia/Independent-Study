@@ -145,8 +145,14 @@ public class GameWindow extends JPanel implements Runnable {
 	@Override
 	public void run() {
 		while(true) {
-			
-			repaint();
+			long updates = 60, updateunit = 1000000;
+			long execute = (System.currentTimeMillis() / 1000000) * updateunit;
+			long now = (System.currentTimeMillis() / 1000000) * updateunit;
+			long difference = now - updateunit;
+			long interval = 1000 / updates;
+			if (difference > interval) {
+				repaint();
+			}
 		}
 	}
 }
