@@ -13,6 +13,11 @@ public class Block extends Rectangle{
 	}
 	
 	public void drawImg(Graphics g) {
+		if (id == 24) {
+			id = 28;
+		} else if (id == 25) {
+			id = 27;
+		}
 		g.drawImage(Values.img(id), x, y, width, height, null);
 	}
 	

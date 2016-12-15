@@ -13,7 +13,7 @@ public class GameField {
 	public static int offset = 5, 
 			borderX = EnemyField.borderWidth+offset*2,
 			borderWidth = GameWindow.width-borderX*2,
-			borderHeight = GameWindow.height-offset*20;
+			borderHeight = GameWindow.height-10;
 			
 	public static Block border;
 	public static Block game[][];
@@ -40,7 +40,7 @@ public class GameField {
 			for(int y = 0; y < gameY; y++) {
 				for(int x = 0; x < gameX; x++) {
 					Field f = p.getField().get(y).get(x);
-					game[y][x] = new Block(border.x+offset*2 + f.getX(), border.y+offset+3 + f.getY(), size, size, f.getBuilding().getId());
+					game[y][x] = new Block(border.x+offset*2 + f.getX(), border.y+offset+3 + f.getY() - 5, size, size, f.getBuilding().getId());
 				}
 			}
 			game[0][gameX/2].id = 1;

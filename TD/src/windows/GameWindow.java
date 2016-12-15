@@ -54,7 +54,6 @@ public class GameWindow extends JPanel implements Runnable {
 	
 	public void setPlayerValues() {
 		player = getPlayer();
-		
 		if (player.getEnemies() != null) {
 			if ( (player.getEnemies().size() > GameField.Enemies.size()) || (player.getEnemies().size() < GameField.Enemies.size()) ) {
 				GameField.Enemies.clear();
@@ -113,7 +112,7 @@ public class GameWindow extends JPanel implements Runnable {
 		
 		Efield.draw(g);
 		Gfield.draw(g);
-		Sfield.draw(g);
+		//Sfield.draw(g);
 		Tfield.draw(g);
 		
 		setPlayerValues();

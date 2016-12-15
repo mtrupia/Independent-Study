@@ -46,9 +46,9 @@ public class EnemyField {
 			enemy[i].drawImg(g);
 		}
 		
-		botLine.drawRect(g);
+		//botLine.drawRect(g);
 		
 		// Spend all gold
-		g.drawString(buyText, border.x+offset*3, border.height-30);
+		//g.drawString(buyText, border.x+offset*3, border.height-30);
 	}
 }

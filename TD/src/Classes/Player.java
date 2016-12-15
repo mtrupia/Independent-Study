@@ -6,6 +6,7 @@ public class Player {
 
     private Integer score;
     private Integer lives;
+    private Integer enemylives;
     private Integer gold;
     private List<Object> specials = new ArrayList<Object>();
     private List<List<Field>> field = new ArrayList<List<Field>>();
@@ -25,6 +26,14 @@ public class Player {
     
     public void setLives(Integer lives) {
         this.lives = lives;
+    }
+    
+    public Integer getEnemyLives() {
+        return enemylives;
+    }
+    
+    public void setEnemyLives(Integer enemylives) {
+        this.enemylives = enemylives;
     }
     
     public Integer getGold() {
