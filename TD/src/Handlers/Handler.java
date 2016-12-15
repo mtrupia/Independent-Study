@@ -186,7 +186,9 @@ public class Handler implements MouseMotionListener, MouseListener{
 			if (EnemyField.border.contains(mouse)) {
 				for (int i = 0; i < EnemyField.enemyX*EnemyField.enemyY; i++) {
 					if (EnemyField.enemy[i].contains(mouse)) {
-						GameWindow.MouseText = Values.searchId(EnemyField.enemy[i].id);
+						int id = EnemyField.enemy[i].id;
+						GameWindow.MouseText = Values.searchId(id);
+						GameWindow.MouseText += ": " + ((id-39) * 25) * ((id-40) + 1);
 					}
 				}
 			}
@@ -194,7 +196,9 @@ public class Handler implements MouseMotionListener, MouseListener{
 			if (TowersField.border.contains(mouse)) {
 				for (int i = 0; i < TowersField.towersX*TowersField.towersY; i++) {
 					if (TowersField.tower[i].contains(mouse)) {
-						GameWindow.MouseText = Values.searchId(TowersField.tower[i].id);
+						int id = TowersField.tower[i].id;
+						GameWindow.MouseText = Values.searchId(id);
+						GameWindow.MouseText += ": " + ((id-19) * 100) * ((id-20) + 1);
 					}
 				}
 			}
@@ -223,7 +227,9 @@ public class Handler implements MouseMotionListener, MouseListener{
 			if (EnemyField.border.contains(mouse)) {
 				for (int i = 0; i < EnemyField.enemyX*EnemyField.enemyY; i++) {
 					if (EnemyField.enemy[i].contains(mouse)) {
-						GameWindow.MouseText = Values.searchId(EnemyField.enemy[i].id);
+						int id = EnemyField.enemy[i].id;
+						GameWindow.MouseText = Values.searchId(id);
+						GameWindow.MouseText += ": " + ((id-39) * 25) * ((id-40) + 1);
 					}
 				}
 			}
@@ -231,7 +237,9 @@ public class Handler implements MouseMotionListener, MouseListener{
 			if (TowersField.border.contains(mouse)) {
 				for (int i = 0; i < TowersField.towersX*TowersField.towersY; i++) {
 					if (TowersField.tower[i].contains(mouse)) {
-						GameWindow.MouseText = Values.searchId(TowersField.tower[i].id);
+						int id = TowersField.tower[i].id;
+						GameWindow.MouseText = Values.searchId(id);
+						GameWindow.MouseText += ": " + ((id-19) * 100) * ((id-20) + 1);
 					}
 				}
 			}

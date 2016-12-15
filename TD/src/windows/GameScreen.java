@@ -58,8 +58,8 @@ public class GameScreen extends JFrame{
 		Values.vals.get(21).string = "Multy";
 		Values.vals.get(22).string = "Ice";
 		Values.vals.get(23).string = "Fire";
-		Values.vals.get(27).string = "Melee";
-		Values.vals.get(28).string = "Cannon";
+		Values.vals.get(24).string = "Melee";
+		Values.vals.get(25).string = "Cannon";
 		// 40 - 51: enemies
 		Values.vals.get(40).string = "Walker";
 		Values.vals.get(41).string = "Runner";

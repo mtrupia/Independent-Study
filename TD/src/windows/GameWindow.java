@@ -67,9 +67,9 @@ public class GameWindow extends JPanel implements Runnable {
 					GameField.Enemies.get(i).x = GameField.game[0][GameField.gameX/2].x + e.getX();
 					GameField.Enemies.get(i).y = GameField.game[0][GameField.gameX/2].y + e.getY();
 				}
-			} else {
-				GameField.Enemies.clear();
-			}
+			} 
+		} else {
+			GameField.Enemies.clear();
 		}
 		
 		for(int y = 0; y < GameField.gameY; y++) {
